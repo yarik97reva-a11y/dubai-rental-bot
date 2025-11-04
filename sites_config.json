@@ -1,0 +1,57 @@
+{
+  "sites": [
+    {
+      "name": "Property Finder",
+      "enabled": true,
+      "base_url": "https://www.propertyfinder.ae",
+      "search_url": "https://www.propertyfinder.ae/en/search?c=1&l=219&ob=mr&page=1&rp=y",
+      "scraper_type": "property_finder",
+      "selectors": {
+        "listing_container": "div[data-testid='property-card']",
+        "title": "h2[data-testid='property-card-title']",
+        "price": "p[data-testid='property-card-price']",
+        "location": "p[data-testid='property-card-location']",
+        "link": "a[data-testid='property-card-link']",
+        "bedrooms": "span[data-testid='property-card-spec-bedrooms']",
+        "area": "span[data-testid='property-card-spec-area']"
+      }
+    },
+    {
+      "name": "Bayut",
+      "enabled": true,
+      "base_url": "https://www.bayut.com",
+      "search_url": "https://www.bayut.com/to-rent/property/dubai/",
+      "scraper_type": "bayut",
+      "selectors": {
+        "listing_container": "article[aria-label*='Property']",
+        "title": "h2[aria-label='Property title']",
+        "price": "span[aria-label='Price']",
+        "location": "div[aria-label='Property location']",
+        "link": "a[aria-label='Listing link']",
+        "bedrooms": "span[aria-label='Bedrooms']",
+        "area": "span[aria-label='Area']"
+      }
+    },
+    {
+      "name": "Dubizzle",
+      "enabled": true,
+      "base_url": "https://dubai.dubizzle.com",
+      "search_url": "https://dubai.dubizzle.com/property-for-rent/",
+      "scraper_type": "dubizzle",
+      "selectors": {
+        "listing_container": "div[data-testid='listing-card']",
+        "title": "h3",
+        "price": "div[data-testid='listing-price']",
+        "location": "div[data-testid='listing-location']",
+        "link": "a",
+        "bedrooms": "span:contains('Bed')",
+        "area": "span:contains('sqft')"
+      }
+    }
+  ],
+  "scraping_settings": {
+    "delay_between_requests": 2,
+    "max_pages_per_site": 3,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
+}

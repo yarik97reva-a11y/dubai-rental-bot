@@ -1,0 +1,25 @@
+services:
+  - type: worker
+    name: dubai-rental-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd src && python bot.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: NOTIFICATION_TIME
+        value: "09:00"
+      - key: MAX_LISTINGS_PER_NOTIFICATION
+        value: "50"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dubai-rentals-db
+          property: connectionString
+
+databases:
+  - name: dubai-rentals-db
+    databaseName: dubai_rentals
+    user: dubai_user
+    plan: free
